@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zynex Studio | Startup Web Development Company</title>
+  <link rel="icon" type="image/png" href="icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: #060816;
+      color: white;
+      overflow-x: hidden;
+    }
+
+    body::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    body::-webkit-scrollbar-thumb {
+      background: linear-gradient(180deg, #00bfff, #8a2be2);
+      border-radius: 10px;
+    }
+
+    header {
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      padding: 18px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      backdrop-filter: blur(12px);
+      background: rgba(0,0,0,0.35);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .logo {
+      font-size: 2rem;
+      font-weight: 800;
+      background: linear-gradient(90deg, #00bfff, #a855f7);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 25px;
+      font-size: 1rem;
+      transition: 0.3s;
+      position: relative;
+    }
+
+    nav a:hover {
+      color: #00bfff;
+    }
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 140px 8% 80px;
+      gap: 50px;
+    }
+
+    .hero-content {
+      max-width: 650px;
+    }
+
+    .hero h1 {
+      font-size: 4rem;
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+
+    .gradient-text {
+      background: linear-gradient(90deg, #00bfff, #a855f7);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero p {
+      color: #cfcfcf;
+      line-height: 1.8;
+      margin-bottom: 30px;
+      font-size: 1.05rem;
+    }
+
+    .btns {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 14px 32px;
+      border-radius: 40px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.3s ease;
+    }
+
+    .primary-btn {
+      background: linear-gradient(90deg, #00bfff, #8a2be2);
+      color: white;
+      box-shadow: 0 0 25px rgba(0,191,255,0.4);
+    }
+
+    .primary-btn:hover {
+      transform: translateY(-4px);
+    }
+
+    .secondary-btn {
+      border: 1px solid rgba(255,255,255,0.2);
+      color: white;
+    }
+
+    .secondary-btn:hover {
+      background: rgba(255,255,255,0.08);
+    }
+
+    .hero-image {
+      position: relative;
+    }
+
+    .hero-image img {
+      width: 420px;
+      animation: float 4s ease-in-out infinite;
+      filter: drop-shadow(0 0 30px rgba(0,191,255,0.4));
+    }
+
+    @keyframes float {
+      0%,100% {
+        transform: translateY(0px);
+      }
+      50% {
+        transform: translateY(-20px);
+      }
+    }
+
+    section {
+      padding: 100px 8%;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .section-title h2 {
+      font-size: 2.8rem;
+      margin-bottom: 10px;
+    }
+
+    .section-title p {
+      color: #b5b5b5;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+    }
+
+    .service-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 22px;
+      padding: 35px;
+      transition: 0.4s ease;
+      backdrop-filter: blur(12px);
+    }
+
+    .service-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 0 30px rgba(138,43,226,0.25);
+    }
+
+    .service-icon {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+
+    .service-card h3 {
+      margin-bottom: 15px;
+      font-size: 1.4rem;
+    }
+
+    .service-card p {
+      color: #c8c8c8;
+      line-height: 1.7;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+      gap: 25px;
+      text-align: center;
+    }
+
+    .stat-box {
+      padding: 40px 20px;
+      border-radius: 20px;
+      background: linear-gradient(145deg, rgba(0,191,255,0.12), rgba(138,43,226,0.12));
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .stat-box h3 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+      color: #00bfff;
+    }
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 25px;
+    }
+
+    .project-card {
+      overflow: hidden;
+      border-radius: 20px;
+      position: relative;
+      cursor: pointer;
+    }
+
+    .project-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: 0.5s;
+    }
+
+    .project-card:hover img {
+      transform: scale(1.1);
+    }
+
+    .overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+      display: flex;
+      align-items: end;
+      padding: 25px;
+    }
+
+    .overlay h4 {
+      font-size: 1.4rem;
+    }
+
+    .contact-box {
+      max-width: 700px;
+      margin: auto;
+      background: rgba(255,255,255,0.04);
+      padding: 40px;
+      border-radius: 24px;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .contact-box form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .contact-box input,
+    .contact-box textarea {
+      padding: 16px;
+      border-radius: 14px;
+      border: none;
+      outline: none;
+      background: rgba(255,255,255,0.07);
+      color: white;
+    }
+
+    .contact-box textarea {
+      min-height: 150px;
+      resize: none;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      color: #a0a0a0;
+    }
+
+    .glow {
+      position: absolute;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(0,191,255,0.25), transparent 70%);
+      top: -100px;
+      right: -100px;
+      z-index: -1;
+      filter: blur(30px);
+    }
+
+    @media(max-width: 950px) {
+      .hero {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .hero h1 {
+        font-size: 3rem;
+      }
+
+      nav {
+        display: none;
+      }
+
+      .btns {
+        justify-content: center;
+      }
+
+      .hero-image img {
+        width: 300px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="glow"></div>
+
+  <header>
+    <div class="logo">ZYNEX STUDIO</div>
+
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#services">Services</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <h1>Building <span class="gradient-text">Modern Websites</span> For Future Brands</h1>
+      <p>
+        Zynex Studio is a fast-growing startup web development company launched for modern brands. We craft premium websites, powerful digital experiences, and innovative online solutions that help businesses grow faster in the digital world.
+      </p>
+
+      <div style="margin-bottom:25px; display:inline-block; padding:10px 20px; border-radius:30px; background:rgba(0,191,255,0.12); border:1px solid rgba(0,191,255,0.3); color:#00bfff; font-weight:600;">
+        🚀 Official Startup Launch 2026
+      </div>
+
+      <div class="btns">
+        <a href="#contact" class="btn primary-btn">Start Project</a>
+        <a href="#services" class="btn secondary-btn">Explore Services</a>
+      </div>
+    </div>
+
+    <div class="hero-image">
+      <img src="logo.png" alt="Zynex Studio Logo">
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="section-title">
+      <h2>Our Services</h2>
+      <p>Creative digital services for modern businesses.</p>
+    </div>
+
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">💻</div>
+        <h3>Web Development</h3>
+        <p>Modern responsive websites using latest technologies with smooth user experience.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">🎨</div>
+        <h3>UI/UX Design</h3>
+        <p>Creative and user-focused interface designs that attract modern audiences.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">⚡</div>
+        <h3>Performance Optimization</h3>
+        <p>Fast loading websites optimized for SEO, speed, and conversion performance.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">🚀</div>
+        <h3>Brand Identity</h3>
+        <p>Build powerful online branding with logos, visuals, and modern digital strategy.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">
+      <h2>Our Vision</h2>
+      <p>A passionate startup team building the future of digital experiences.</p>
+    </div>
+
+    <div class="stats">
+      <div class="stat-box">
+        <h3>Creative</h3>
+        <p>Fresh modern ideas for brands and startups.</p>
+      </div>
+
+      <div class="stat-box">
+        <h3>Innovative</h3>
+        <p>Using latest technologies and trending designs.</p>
+      </div>
+
+      <div class="stat-box">
+        <h3>Passionate</h3>
+        <p>Dedicated startup team focused on quality and growth.</p>
+      </div>
+
+      <div class="stat-box">
+        <h3>Future Ready</h3>
+        <p>Building scalable and next-generation web solutions.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="section-title">
+      <h2>Upcoming Creative Works</h2>
+      <p>Zynex Studio is preparing innovative projects for modern businesses and startups.</p>
+    </div>
+
+    <div class="projects">
+      <div class="project-card">
+        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200&auto=format&fit=crop" alt="project">
+        <div class="overlay">
+          <h4>Modern Startup Websites</h4>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <img src="https://images.unsplash.com/photo-1559028012-481c04fa702d?q=80&w=1200&auto=format&fit=crop" alt="project">
+        <div class="overlay">
+          <h4>Creative Brand Experiences</h4>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1200&auto=format&fit=crop" alt="project">
+        <div class="overlay">
+          <h4>Future Digital Solutions</h4>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="section-title">
+      <h2>Let's Build Something Amazing</h2>
+      <p>Contact Zynex Studio today.</p>
+    </div>
+
+    <div class="contact-box">
+      <form id="suggestionForm">
+  <input type="text" id="name" placeholder="Your Name" required>
+
+  <input type="email" id="email" placeholder="Your Email" required>
+
+  <textarea id="about" placeholder="Tell us about your project"></textarea>
+
+  <button class="btn primary-btn" type="submit">
+    Send Message
+  </button>
+</form>
+    </div>
+  </section>
+
+  <footer>
+    © 2026 Zynex Studio — Startup Web Development Company | Designed by Cyber Patrick.
+  </footer>
+
+  <!-- FIREBASE -->
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
+
+  <script>
+  firebase.initializeApp({
+    apiKey: "AIzaSyAubS5tvkyZlDi1AgCnAiDf_cQo425Qzcc",
+    authDomain: "my-startup-7063b.firebaseapp.com",
+    projectId: "my-startup-7063b",
+    storageBucket: "my-startup-7063b.firebasestorage.app",
+    messagingSenderId: "26616497192",
+    appId: "1:26616497192:web:7625aff8072503c2d4611d"
+  });
+
+  const db = firebase.firestore();
+
+  const form = document.getElementById("suggestionForm");
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const nameVal = document.getElementById("name").value.trim();
+    const emailVal = document.getElementById("email").value.trim();
+    const aboutVal = document.getElementById("about").value.trim();
+
+    if (!nameVal || !emailVal || !aboutVal) {
+      alert("Please fill all required fields");
+      return;
+    }
+
+    try {
+      await db.collection("contact").add({
+        name: nameVal,
+        email: emailVal,
+        about: aboutVal,
+        createdAt: new Date()
+      });
+
+      alert("Message Sent Successfully!");
+      form.reset();
+
+    } catch (err) {
+      console.error(err);
+      alert("Error sending message");
+    }
+  });
+</script>
+
+</body>
+</html>
